@@ -2,6 +2,7 @@ import prompt from "prompt";
 import mainPrompt from "./prompts/prompt-main.js";
 import chalk from "chalk";
 import createQrCode from "./services/qrc-code/create.js";
+import createPassword from "./services/password/create.js";
 
 async function main() {
 
@@ -9,7 +10,7 @@ async function main() {
         if (result.select == 1) 
             await createQrCode();
         
-        if (result.select == 2) console.log(chalk.blue("Escolheu o PASSWORD"));
+        if (result.select == 2) await createPassword();
 
     });
     prompt.start();
